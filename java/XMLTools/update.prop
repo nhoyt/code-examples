@@ -1,0 +1,15 @@
+#
+# update.properties
+#
+
+# File extension that identifies input files
+update.inputFileType=.xml
+
+# File extension used in constructing output file name
+update.outputFileType=.html
+
+# INI file used for specifying target directory
+update.iniFileName=update.ini
+
+# Target root directory used in constructing output file name
+update.targetRootDir=HTML
