@@ -1,17 +1,27 @@
-const myArray = [];
-
-/* initialize as two dimensional array */
-function init2d (arr, max) {
-  for (let i = 0; i < max; i++) {
-    for (let j = 0; j < max; j++) {
-      arr[i][j] = false;
+/* Create two dimensional array */
+function createArray (numRows, numCols) {
+  const rows = [];
+  for (let row = 0; row < numRows; row++) {
+    const cols = [];
+    for (let col = 0; col < numCols; col++) {
+      cols.push(true);
     }
+    rows.push(cols);
   }
+  return rows;
 }
 
 function checkAllTrue (arr) {
-  return arr.every(i => i.every(j => j === true))
+  return arr.every(row => row.every(col => col === true));
 }
 
-myArray = init2d(myArray);
-console.log(checkAllTrue(myArray);
+let myArray = createArray(12, 12);
+
+console.log(`myArray[0][4]: ${myArray[0][4]}`);
+myArray[3][7] = false;
+
+for (let item of myArray) {
+  console.log(`item: ${item}`);
+}
+
+console.log(checkAllTrue(myArray));
