@@ -1,5 +1,7 @@
+const rows = 12, cols = 12;
+
 /* Create two dimensional array */
-function createArray (numRows, numCols) {
+function create2dArray (numRows, numCols) {
   const rows = [];
   for (let row = 0; row < numRows; row++) {
     const cols = [];
@@ -15,13 +17,33 @@ function checkAllTrue (arr) {
   return arr.every(row => row.every(col => col === true));
 }
 
-let myArray = createArray(12, 12);
+function getNumberOfTrueItems (arr) {
+  let counter = 0;
+  for (let row of arr) {
+    for (let col of row) {
+      if (col === true) { counter++; }
+    }
+  }
+  return counter;
+}
+
+const myArray = create2dArray(rows, cols);
 
 console.log(`myArray[0][4]: ${myArray[0][4]}`);
 myArray[3][7] = false;
+myArray[7][3] = false;
 
-for (let item of myArray) {
-  console.log(`item: ${item}`);
+// Display all of the entries
+for (let row of myArray) {
+  console.log(`row: ${row}`);
 }
 
-console.log(checkAllTrue(myArray));
+const allTrue = checkAllTrue(myArray);
+if (allTrue) {
+  console.log(`allTrue: ${allTrue}`);
+}
+else {
+  const numEntries = rows * cols;
+  const numTrue = getNumberOfTrueItems(myArray);
+  console.log(`Out of ${numEntries} entries, ${numEntries - numTrue} are incorrect.`);
+}
