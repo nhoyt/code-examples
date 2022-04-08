@@ -1,16 +1,17 @@
+/* array-2d.js */
+
 const rows = 12, cols = 12;
 
-/* Create two dimensional array */
-function create2dArray (numRows, numCols) {
-  const rows = [];
-  for (let row = 0; row < numRows; row++) {
-    const cols = [];
-    for (let col = 0; col < numCols; col++) {
-      cols.push(true);
+function create2dArray (rows, cols) {
+  const rowsArray = [];
+  for (let ri = 0; ri < rows; ri++) {
+    const colsArray = [];
+    for (let ci = 0; ci < cols; ci++) {
+      colsArray.push(false);
     }
-    rows.push(cols);
+    rowsArray.push(colsArray);
   }
-  return rows;
+  return rowsArray;
 }
 
 function checkAllTrue (arr) {
@@ -30,8 +31,8 @@ function getNumberOfTrueItems (arr) {
 const myArray = create2dArray(rows, cols);
 
 console.log(`myArray[0][4]: ${myArray[0][4]}`);
-myArray[3][7] = false;
-myArray[7][3] = false;
+myArray[3][7] = true;
+myArray[7][3] = true;
 
 // Display all of the entries
 for (let row of myArray) {
@@ -45,5 +46,5 @@ if (allTrue) {
 else {
   const numEntries = rows * cols;
   const numTrue = getNumberOfTrueItems(myArray);
-  console.log(`Out of ${numEntries} entries, ${numEntries - numTrue} are incorrect.`);
+  console.log(`Out of ${numEntries} entries, ${numEntries - numTrue} are not yet completed.`);
 }
