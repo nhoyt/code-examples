@@ -1,6 +1,6 @@
 /* array-2d.js */
 
-const rows = 12, cols = 12;
+const ROWS = 12, COLS = 12;
 
 function create2dArray (rows, cols) {
   const rowsArray = [];
@@ -28,7 +28,7 @@ function getNumberOfTrueItems (arr) {
   return counter;
 }
 
-const myArray = create2dArray(rows, cols);
+const myArray = create2dArray(ROWS, COLS);
 
 console.log(`myArray[0][4]: ${myArray[0][4]}`);
 myArray[3][7] = true;
@@ -44,7 +44,7 @@ if (allTrue) {
   console.log(`allTrue: ${allTrue}`);
 }
 else {
-  const numEntries = rows * cols;
+  const numEntries = ROWS * COLS;
   const numTrue = getNumberOfTrueItems(myArray);
   console.log(`Out of ${numEntries} entries, ${numEntries - numTrue} are not yet completed.`);
 }
