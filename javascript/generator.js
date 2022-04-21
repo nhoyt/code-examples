@@ -12,7 +12,7 @@ function *nextValue () {
 const valueIterator = nextValue();
 
 function getDataId (prefix) {
-  let suffix = valueIterator.next().value;
+  const suffix = valueIterator.next().value;
   return `${prefix}-${suffix}`;
 }
 
