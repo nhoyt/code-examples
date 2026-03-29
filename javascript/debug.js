@@ -60,3 +60,6 @@ const options = {
 }
 
 debug.logObj(options, 'options');
+
+let x = 1, y = 2, z = "three";
+debug.log('x:', x, 'y:', y, 'z:', z);
