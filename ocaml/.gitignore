@@ -1,0 +1,8 @@
+# Files w/o an extension
+*
+!/**/
+!*.*
+
+# Compiler-generated files
+*.cmi
+*.cmo
