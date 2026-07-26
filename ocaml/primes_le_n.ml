@@ -1,29 +1,36 @@
-let primes n =
+(* primes_le_n.ml *)
+
+let get_primes n =
   let root = 1 + int_of_float (sqrt (float_of_int n)) in
-  let rec sieve i a prime_list =
+
+  (* i: current number in series to test *)
+  (* a: Array w/ all item initially set to false *)
+  (* primes: List that holds primes that we find, init w/ one item: 2 *)
+  let rec sieve i a primes =
     if i >= n then
-      List.rev prime_list
+      List.rev primes
     else
       sieve (i + 2) (
         if i < root then
           let k = 2 * i in
-          let rec rem_mult arr j =
+          let rec remove_mult arr j =
             if j >= n then
               arr
             else
-              rem_mult ((Array.set arr j true); arr) (k + j)
-          in rem_mult a (i * i)
+              remove_mult ((Array.set arr j true); arr) (j + k)
+          in remove_mult a (i * i)
         else
           a
-      ) (if (Array.get a i) = false then
-    i :: prime_list
-          else
-        prime_list)
+      ) (
+      if (Array.get a i) = false then
+        i :: primes
+      else
+        primes)
   in sieve 3 (Array.make n false) [2];;
 
 (* Main function to handle input and print results *)
 let print_primes n =
-  let results = primes n in
+  let results = get_primes n in
   List.iter (fun p -> print_int p; print_string " ") results;
   print_newline ()
 
