@@ -1,4 +1,4 @@
-(* primes.ml *)
+(* first_n_primes.ml *)
 
 (* Function to check if a number is prime *)
 let is_prime n =
