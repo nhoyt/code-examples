@@ -1,7 +1,10 @@
 (* Return list of primes up to n *)
 
-let primes n =
-  (* Note: range places each successive value at the front of the list *)
+(*
+* Original version of primes that requires call to List.rev, since
+* range adds each successively incremented value at front of list.
+*)
+let primes_original n =
   let rec range acc a b =
     if a > b then acc
     else range (a :: acc) (a + 1) b
@@ -11,6 +14,21 @@ let primes n =
     | p :: xs -> p :: sieve (List.filter (fun x -> x mod p <> 0) xs)
   in
   sieve (List.rev (range [] 2 n))
+
+(*
+* Updated version of primes that decrements the param passed as the
+* upper bound of range to produce a list in ascending order.
+*)
+let primes n =
+  let rec range acc a b =
+    if b < a then acc
+    else range (b :: acc) a (b - 1)
+  in
+  let rec sieve = function
+    | [] -> [] (* rec. stopping poing *)
+    | p :: xs -> p :: sieve (List.filter (fun x -> x mod p <> 0) xs)
+  in
+  sieve (range [] 2 n)
 
 (* Main function to handle input and print results *)
 let print_results n =
