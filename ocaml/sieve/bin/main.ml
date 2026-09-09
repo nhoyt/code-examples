@@ -1,8 +1,6 @@
-(* sieve.ml *)
-(* from 'Learn Programming in OCaml' *)
-(* by Sylvain Conchon and Jean-Christophe Filliâtre *)
+(* Sieve of Eratosthenes from 'Learn Programming in OCaml' *)
+(* Modified to init 'max' via Sys.argv instead of read_int *)
 
-(*  let max = read_int ()  *)
 let max = int_of_string Sys.argv.(1)
 
 let prime = Array.make (max + 1) true
@@ -23,7 +21,6 @@ let () =
 
 let () =
   for n = 2 to max do
-    (* if prime.(n) then Printf.printf "%d\n" n *)
     if prime.(n) then Printf.printf "%d " n
   done;
   Printf.printf "\n"
