@@ -1,8 +1,13 @@
 # Files w/o an extension
-*
-!/**/
-!*.*
+# *
+# !/**/
+# !*.*
 
 # Compiler-generated files
-*.cmi
-*.cmo
+# *.cmi
+# *.cmo
+
+# Dune-generated files
+*.opam
+dune
+_build
